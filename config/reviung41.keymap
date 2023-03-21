@@ -9,49 +9,214 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+/*
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+ * │ $ │ " │ « │ » │ ( │ ) │ @ │ + │ - │ / │ * │ = │ % │       │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+ * │     │ B │ É │ P │ O │ È │ ^ │ V │ D │ L │ J │ Z │ W │     │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+ * │      │ A │ U │ I │ E │ , │ C │ T │ S │ R │ N │ M │ Ç │    │
+ * ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+ * │    │ Ê │ À │ Y │ X │ . │ K │ ' │ Q │ G │ H │ F │          │
+ * ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+ * │    │    │    │                        │    │    │    │    │
+ * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+ */
+// Row 1
+#define BP_DLR  GRAVE  // $
+#define BP_DQUO N1    // "
+#define BP_LDAQ N2    // «
+#define BP_RDAQ N3    // »
+#define BP_LPRN N4    // (
+#define BP_RPRN N5    // )
+#define BP_AT   N6    // @
+#define BP_PLUS N7    // +
+#define BP_MINS N8    // -
+#define BP_SLSH N9    // /
+#define BP_ASTR N0    // *
+#define BP_EQL  MINUS // =
+#define BP_PERC EQUAL  // %
+// Row 2
+#define BP_B    Q    // B
+#define BP_EACU W    // É
+#define BP_P    E    // P
+#define BP_O    R    // O
+#define BP_EGRV T    // È
+#define BP_DCIR Y    // ^ (dead)
+#define BP_V    U    // V
+#define BP_D    I    // D
+#define BP_L    O    // L
+#define BP_J    P    // J
+#define BP_Z    LEFT_BRACKET // Z
+#define BP_W    RIGHT_BRACKET // W
+// Row 3
+#define BP_A    A    // A
+#define BP_U    S    // U
+#define BP_I    D    // I
+#define BP_E    F    // E
+#define BP_COMM G    // ,
+#define BP_C    H    // C
+#define BP_T    J    // T
+#define BP_S    K    // S
+#define BP_R    L    // R
+#define BP_N    SEMICOLON // N
+#define BP_M    SINGLE_QUOTE // M
+#define BP_CCED BACKSLASH // Ç
+// Row 4
+//#define BP_ECIR KC_NUBS // Ê
+#define BP_AGRV Z    // À
+#define BP_Y    X    // Y
+#define BP_X    C    // X
+#define BP_DOT  V    // .
+#define BP_K    B    // K
+#define BP_QUOT N    // '
+#define BP_Q    M    // Q
+#define BP_G    COMMA // G
+#define BP_H    DOT  // H
+#define BP_F    SLASH // F
+
+
+/* Shifted symbols
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+ * │ # │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ ° │ ` │       │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+ * │     │   │   │   │   │   │ ! │   │   │   │   │   │   │     │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+ * │      │   │   │   │   │ ; │   │   │   │   │   │   │   │    │
+ * ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+ * │    │   │   │   │   │ : │   │ ? │   │   │   │   │          │
+ * ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+ * │    │    │    │                        │    │    │    │    │
+ * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+ */
+// Row 1
+#define BP_HASH LS(BP_DLR)  // #
+#define BP_1    LS(BP_DQUO) // 1
+#define BP_2    LS(BP_LDAQ) // 2
+#define BP_3    LS(BP_RDAQ) // 3
+#define BP_4    LS(BP_LPRN) // 4
+#define BP_5    LS(BP_RPRN) // 5
+#define BP_6    LS(BP_AT)   // 6
+#define BP_7    LS(BP_PLUS) // 7
+#define BP_8    LS(BP_MINS) // 8
+#define BP_9    LS(BP_SLSH) // 9
+#define BP_0    LS(BP_ASTR) // 0
+#define BP_DEG  LS(BP_EQL)  // °
+#define BP_GRV  LS(BP_PERC) // `
+// Row 2
+#define BP_EXLM LS(BP_DCIR) // !
+// Row 3
+#define BP_SCLN LS(BP_COMM) // ;
+// Row 4
+#define BP_COLN LS(BP_DOT)  // :
+#define BP_QUES LS(BP_QUOT) // ?
+// Row 5
+#define BP_NBSP LS(SPACE) // (non-breaking space)
+
+
+/* AltGr symbols
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+ * │ – │ — │ < │ > │ [ │ ] │ ^ │ ± │ − │ ÷ │ × │ ≠ │ ‰ │       │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+ * │     │ | │ ´ │ & │ Œ │ ` │ ¡ │ ˇ │ Ð │ / │ Ĳ │ Ə │ ˘ │     │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+ * │      │ Æ │ Ù │ ¨ │ € │   │ © │ Þ │ ẞ │ ® │ ~ │ ¯ │ ¸ │    │
+ * ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+ * │    │   │ \ │ { │ } │ … │ ~ │ ¿ │ ° │   │ † │ ˛ │          │
+ * ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+ * │    │    │    │           _            │    │    │    │    │
+ * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+ */
+// Row 1
+#define BP_NDSH RA(BP_DLR)  // –
+#define BP_MDSH RA(BP_DQUO) // —
+#define BP_LABK RA(BP_LDAQ) // <
+#define BP_RABK RA(BP_RDAQ) // >
+#define BP_LBRC RA(BP_LPRN) // [
+#define BP_RBRC RA(BP_RPRN) // ]
+#define BP_CIRC RA(BP_AT)   // ^
+#define BP_PLMN RA(BP_PLUS) // ±
+#define BP_MMNS RA(BP_MINS) // −
+#define BP_DIV  RA(BP_SLSH) // ÷
+#define BP_MUL  RA(BP_ASTR) // ×
+#define BP_NEQL RA(BP_EQL)  // ≠
+#define BP_PERM RA(BP_PERC) // ‰
+//// Row 2
+#define BP_PIPE RA(BP_B)    // |
+#define BP_AMPR RA(BP_P)    // &
+//#define BP_OE   ALGR(BP_O)    // Œ
+//#define BP_IEXL ALGR(BP_DCIR) // ¡
+//#define BP_ETH  ALGR(BP_D)    // Ð
+//#define BP_IJ   ALGR(BP_J)    // Ĳ
+//#define BP_SCHW ALGR(BP_Z)    // Ə
+//// Row 3
+//#define BP_AE   ALGR(BP_A)    // Æ
+//#define BP_UGRV ALGR(BP_U)    // Ù
+#define BP_EURO RA(BP_E)    // €
+//#define BP_COPY ALGR(BP_C)    // ©
+//#define BP_THRN ALGR(BP_T)    // Þ
+//#define BP_SS   ALGR(BP_S)    // ẞ
+//#define BP_REGD ALGR(BP_R)    // ®
+//// Row 4
+#define BP_BSLS RA(BP_AGRV) // (backslash)
+#define BP_LCBR RA(BP_Y)    // {
+#define BP_RCBR RA(BP_X)    // }
+#define BP_ELLP RA(BP_DOT)  // …
+#define BP_TILD RA(BP_K)    // ~
+//// Row 5
+#define BP_UNDS RA(SPACE)  // _
+
+// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
+&lt { quick_tap_ms = <200>; };
+&mt {
+    tapping-term-ms = <201>;
+    flavor = "tap-preferred";
+ };
+
+
 / {
         keymap {
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |   BKSP    |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |    '      |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT(RET) |
-//                         | ALT | LWR | SPC | RSE  | ALT |
+// -------------------------------------------------------------------------------------------
+// |  w         |  b  |  é  |  p  |  o  |  è  |       |  ^  |  v   |  d  |  l  |  j  |   z    |
+// | CTRL / TAB |  a  |  u  |  i  |  e  |  ,  |       |  c  |  t   |  s  |  r  |  n  |   m    |
+// | SHFT       |  à  |  y  |  x  |  .  |  k  |       |  '  |  q   |  g  |  h  |  h  | ALT(ç) |
+//                         | GUI | SPC | RET | BSPC  | RSHFT |
                         bindings = <
-   &kp ç       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
-   &mt LSHFT TAB  &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LCTRL      &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mt RSHFT NON_US_HASH
-                        &kp LGUI  &lt 1 SPACE &kp RET &lt 2 BSPC &kp RALT
+   &kp RBKT       &kp BP_B     &kp BP_EACU  &kp BP_P   &kp BP_O     &kp BP_EGRV        &kp BP_DCIR   &kp BP_V    &kp BP_D     &kp BP_L   &kp BP_J    &kp BP_Z
+   &mt LSHFT TAB  &kp BP_A     &kp BP_U     &kp BP_I   &lt 4 BP_E   &kp BP_COMM        &kp BP_C      &lt 5 BP_T  &kp BP_S     &kp BP_R   &kp BP_N    &kp BP_M
+   &kp LCTRL      &kp BP_AGRV  &kp BP_Y     &kp BP_X   &kp BP_DOT   &kp BP_K           &kp BP_QUOT   &kp BP_Q    &kp BP_G     &kp BP_H   &kp BP_F    &mt RSHFT BP_CCED
+                                      &kp LGUI       &lt 1 SPACE      &mt LALT RET      &lt 2 BSPC     &mt RALT ESC
                         >;
                 };
 
                 lower_layer {
 // ----------------------------------------------------------------------------------
-// |    |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |    DEL    |
-// |    |  _  |  +  |  {  |  }  | "|" |   | LFT | DWN |  UP | RGT |  `  |     ~     |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | HOME| END | PGUP| PGDN| PRSC| SHFT(RET) |
+// | ESC |  "  |  «  |  »   |   (    |  )    |       |  ^  |  &   |  UP  |  (    |  )  | DEL |
+// |     |     |     | REDO |  UNDO  |       |       |     | LEFT | DOWN | RIGHT |     |     |
+// |     |     |     | CUT  |  COPY  | PASTE |       |     |      |      |       |     |     |
 //                       |     |     | RET | ADJ |     |
                         bindings = <
-   &trans &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT      &kp CARET &kp AMPS &kp N8    &kp LPAR  &kp RPAR  &kp DEL
-   &trans &kp MINUS &kp KP_PLUS &kp LBRC &kp RBRC &kp PIPE       &kp LEFT  &kp DOWN &kp UP    &kp RIGHT &kp GRAVE &kp GRAVE
-   &trans &kp ESC   &kp LGUI    &kp LALT &kp CLCK &kp SQT        &kp HOME  &kp END  &kp PG_UP &kp PG_DN &kp PSCRN &mt RSHFT RET
-                                 &trans      &trans       &kp RET        &mo 3       &trans
+   &kp ESC   &kp BP_DQUO   &kp BP_LDAQ   &kp BP_RDAQ   &kp BP_LPRN   &kp BP_RPRN         &kp BP_AT  &kp BP_PLUS     &kp BP_SLSH     &none  &kp BP_ASTR  &kp DEL
+   &none     &none         &none         &kp LC(BP_Y)    &kp LC(BP_Z)    &none               &none        &kp K_SCROLL_UP   &kp UP  &kp K_SCROLL_DOWN &none  &none 
+   &none     &none         &none         &kp LC(BP_X)     &kp LC(BP_C)    &kp LC(BP_V)         &none        &kp LEFT      &kp DOWN  &kp RIGHT   &none    &none 
+                                 &trans      &mo 1       &kp RET        &mo 3       &trans
                         >;
                 };
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |    |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | DEL |
-// |    |  -  |  =  |  [  |  ]  |  \  |   | F1  | F2  | F3  | F4  | F5  | F6  |
-// |    | ESC | GUI | ALT | CAPS|  "  |   | F7  | F8  | F9  | F10 | F11 | F12 |
-//                       |     | ADJ | BKSP |    |     |
+// | ESC |  1  |  2  |  3   |  4  |   5   |         |  6   |   7  |   8   |   9   |  0  | DEL |
+// |     |     |     |      |     |       |         | vol up | prev |  pause  | next |     |     |
+// |     |     |     |      |     |       |         | vol dn  |      |        |       |     |     |
+//                       |     | ADJ | RET |    |     |
                         bindings = <
-   &trans &kp N1    &kp N2    &kp N3    &kp N4    &kp N5        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6
-   &trans &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp SQT       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-                                &trans      &mo 3       &kp BSPC        &trans      &trans
+   &kp ESC   &kp BP_1   &kp BP_2   &kp BP_3   &kp BP_4   &kp BP_5         &kp BP_6  &kp BP_7   &kp BP_8     &kp BP_9      &kp BP_0  &kp DEL
+   &none     &none         &none         &none         &none         &none               &kp C_VOL_UP   &kp C_PREV      &kp C_PLAY_PAUSE   &kp C_NEXT        &none        &none
+   &none     &none         &none         &none         &none         &none               &kp C_VOL_DN    &kp C_MUTE         &none          &none        &none        &none
+                                    &trans      &mo 3       &kp RET        &trans      &trans
                         >;
                 };
 
@@ -62,26 +227,39 @@
 // |          |          |          |          |    |         |   | RESET |     |     |     |     |        |
 //                                              |     |     |     |     |     |
                         bindings = <
-   &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
-   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &none &none              &none        &none        &none        &none        &none        &none
+   &reset &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &none &rgb_ug RGB_TOG    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR
+   &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &kp PSCRN &none              &none        &none        &none        &none        &none        &none
    &none           &none           &none           &none           &none &none              &reset       &none        &none        &none        &none        &none
                                                              &trans      &trans       &tog 3        &trans      &trans
                         >;
                 };
 
-                dev_layer {
+                number_layer {
+// -----------------------------------------------------------------------------------------
+// |    |     |     |     |     |     |   |  €  |  7  |  8  |  9  |  0  | DEL |
+// |    |     |     |     |     |     |   |  #  |  4  |  5  |  6  |  *  |  =  |
+// |    |     |     |     |     |     |   |  %  |  1  |  2  |  3  |  -  |  .  |
+//                        |     | ADJ | BKSP |    | *   |
+                        bindings = <
+   &none &none &none &none &none &none      &kp BP_EURO    &kp BP_7    &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
+   &none &none &none &none &none &none      &kp BP_HASH    &kp BP_4    &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
+   &none &none &none &none &none &none      &kp BP_PERC    &kp BP_1    &kp BP_2    &kp BP_3   &kp BP_MINS   &kp BP_DOT
+                                &trans      &mo 3      &kp RET      &kp BP_PLUS    &kp BP_0
+                        >;
+                };
+
+                signs_layer {
 // -----------------------------------------------------------------------------------------
 // |  $ |  "  |  «  |  »  |  (  |  )  |   |  6  |  7  |  8  |  9  |  0  | DEL |
 // |    |  &  |  <  |  >  |  [  |  ]  |   | F1  | F2  | F3  | F4  | F5  | F6  |
 // |    |  |  |  \  |  /  |  {  |  }  |   | F7  | F8  | F9  | F10 | F11 | F12 |
 //                       |     | ADJ |     |    |     |
                         bindings = <
-   &trans   &kp EXCL  &kp AT      &kp HASH &kp DLLR &kp PRCNT        &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
-   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT  &kp BSLH      &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6
-   &tsans      &kp ESC   &kp LGUI  &kp RALT  &kp CLCK  &kp SQT       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-                                &trans      &trans       &kp BSPC        &trans      &trans
+   &kp BP_AMPR   &kp BP_LABK  &kp BP_RABK   &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT        &none    &none    &none    &none    &none    &none
+   &kp BP_PIPE   &kp BP_SLSH  &kp BP_BSLS   &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR       &none    &none    &none    &none    &none    &none
+   &kp BP_CIRC   &kp BP_LDAQ  &kp BP_RDAQ   &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD      &none    &none    &none    &none    &none    &none
+                                &none      &kp BP_UNDS       &none        &none      &none
                         >;
                 };
         };
 };
-

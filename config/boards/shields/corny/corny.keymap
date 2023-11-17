@@ -3,10 +3,6 @@
 #include <dt-bindings/zmk/bt.h>
 
 
- &mt {
-    tapping-term-ms = <201>;
-    flavor = "tap-preferred";
- };
 
 
 /*
@@ -191,13 +187,14 @@
                 };
         };
 
-// Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
-&lt { quick_tap_ms = <200>; };
-
-&mt {
+ &mt {
     tapping-term-ms = <201>;
     flavor = "tap-preferred";
  };
+
+&sensors {
+    triggers-per-rotation = <20>;
+};
 
         keymap {
                 compatible = "zmk,keymap";

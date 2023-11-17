@@ -3,6 +3,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 
+ &mt {
+    tapping-term-ms = <201>;
+    flavor = "tap-preferred";
+ };
 
 
 /*
@@ -187,14 +191,6 @@
                 };
         };
 
- &mt {
-    tapping-term-ms = <201>;
-    flavor = "tap-preferred";
- };
-
-&sensors {
-    triggers-per-rotation = <20>;
-};
 
         keymap {
                 compatible = "zmk,keymap";

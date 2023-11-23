@@ -220,8 +220,8 @@
 //                       |     |     | RET | ADJ |     |
                         bindings = <
    &kp ESC   &kp BP_DQUO   &kp BP_LDAQ   &kp BP_RDAQ   &kp BP_LPRN   &kp BP_RPRN         &kp BP_AT  &kp BP_PLUS     &kp BP_SLSH     &none  &kp BP_ASTR  &kp DEL
-   &none     &none         &none         &kp LC(BP_Y)    &kp LC(BP_Z)    &none               &none        &kp K_SCROLL_UP   &kp UP  &kp K_SCROLL_DOWN &kp PG_UP  &none 
-   &none     &none         &none         &kp LC(BP_X)     &kp LC(BP_C)    &kp LC(BP_V)    &bootloader  &none     &none        &kp LEFT      &kp DOWN  &kp RIGHT   &kp PG_DN    &none 
+   &kp LSHFT     &none         &none         &kp LC(BP_Y)    &kp LC(BP_Z)    &none               &none        &kp K_SCROLL_UP   &kp UP  &kp K_SCROLL_DOWN &kp PG_UP  &none 
+   &kp LCTRL     &none         &none         &kp LC(BP_X)     &kp LC(BP_C)    &kp LC(BP_V)    &bootloader  &none     &none        &kp LEFT      &kp DOWN  &kp RIGHT   &kp PG_DN    &none 
                                  &trans      &mo 1       &kp RET    &kp RET     &mo 3       &trans
                         >;
                         sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;

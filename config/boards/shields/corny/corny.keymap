@@ -3,9 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-//test bt
  &mt {
-    tapping-term-ms = <200>;
+    tapping-term-ms = <150>;
  };
 
 
@@ -205,7 +204,7 @@
                         bindings = <
    &kp RBKT       &kp BP_B     &kp BP_EACU  &kp BP_P   &kp BP_O     &kp BP_EGRV        &kp BP_DCIR   &kp BP_V    &kp BP_D     &kp BP_L   &kp BP_J    &kp BP_Z
    &mt LSHFT TAB  &kp BP_A     &kp BP_U     &kp BP_I   &lt 4 BP_E   &kp BP_COMM        &kp BP_C      &lt 5 BP_T  &kp BP_S     &kp BP_R   &kp BP_N    &kp BP_M
-   &kp LCTRL      &kp BP_AGRV  &kp BP_Y     &kp BP_X   &kp BP_DOT   &kp BP_K    &kp C_MUTE  &none       &kp BP_QUOT   &kp BP_Q    &kp BP_G     &kp BP_H   &kp BP_F    &mt RSHFT BP_CCED
+   &kp LCTRL      &kp BP_AGRV  &kp BP_Y     &kp BP_X   &kp BP_DOT   &kp BP_K    &none  &kp C_MUTE       &kp BP_QUOT   &kp BP_Q    &kp BP_G     &kp BP_H   &kp BP_F    &mt RSHFT BP_CCED
                                       &kp LGUI       &lt 1 SPACE      &mt LALT RET    &mt RCTRL RET       &hl_r 2 BSPC     &mt RALT ESC
 
                         >;

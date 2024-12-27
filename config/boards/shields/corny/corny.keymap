@@ -285,12 +285,12 @@
 // | & |  <  |  >  |  [  |  ]  |  @  |        |    |    |    |    |    |    |
 // | | |  /  |  \  |  (  |  )  |  $  |        |    |    |    |    |    |    |
 // | ^ |  «  |  »  |  {  |  }  |  ~  |        |    |    |    |    |    |    |
-//                 |     |  _  |  –  |        |    |    |
+//                 |  –  |  _  |  -  |        |    |    |
                      bindings = <
  &kp BP_AMPR  &kp BP_LABK  &kp BP_RABK  &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT                 &none    &none    &none    &none    &none    &none
  &kp BP_PIPE  &kp BP_SLSH  &kp BP_BSLS  &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR                &none    &none    &none    &none    &none    &none
  &kp BP_CIRC  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD &none &none   &none    &none    &none    &none    &none    &none
-                                        &none        &kp BP_UNDS  &kp BP_NDSH               &none    &none    &none
+                                        &kp BP_NDSH  &kp BP_UNDS  &kp BP_MINS               &none    &none    &none
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
 

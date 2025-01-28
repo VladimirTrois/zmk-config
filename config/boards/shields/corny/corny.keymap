@@ -197,10 +197,10 @@
 
                 default_layer {
 // -------------------------------------------------------------------------------------------
-// | TAB  |  b  |  é  |  p  |  o  |  è  |       |  ^  |  v   |   d   |  l  |  j  |   z    |
-// | CTRL |  a  |  u  |  i  |  e  |  ,  |       |  c  |  t   |   s   |  r  |  n  |   m    |
-// | SHFT |  à  |  y  |  x  |  .  |  k  |       |  '  |  q   |   g   |  h  |  h  | ALT(w) |
-//                    | GUI | SPC | RET |       | RET | BSPC | RSHFT |
+// | TAB   |  b  |  é  |  p  |  o  |  è  |       |  ^  |  v   |   d   |  l  |  j  |   z    |
+// | LSHFT |  a  |  u  |  i  |  4(e)  |  ,  |       |  c  |  5(t)   |   s   |  r  |  n  |   m    |
+// | LCTRL |  à  |  y  |  x  |  .  |  k  |       |  '  |  q   |   g   |  h  |  h  | RSHFT(w) |
+//                    | GUI | 1(SPC) | RET |       | RCTRL(RET) | 2(BSPC) | RALT(ESC) |
                         bindings = <
    &kp TAB    &kp BP_B     &kp BP_EACU  &kp BP_P   &kp BP_O     &kp BP_EGRV                        &kp BP_DCIR     &kp BP_V        &kp BP_D       &kp BP_L   &kp BP_J    &kp BP_Z
    &kp LSHFT  &kp BP_A     &kp BP_U     &kp BP_I   &lt 4 BP_E   &kp BP_COMM                        &kp BP_C        &lt 5 BP_T      &kp BP_S       &kp BP_R   &kp BP_N    &kp BP_M
@@ -217,13 +217,13 @@
 // ----------------------------------------------------------------------------------
 // | ESC |  "  |     |      |        |     |       |  @  | SCR UP |  UP   | SCR DOWN | PG_UP  | DEL |
 // |LSHFT|     |     | UNDO |  REDO  |     |       |  ç  | LEFT   | DOWN  | RIGHT    | PG_DN  |     |
-// |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |     |
-//                   | GUI  |        | RET |       | RET |  BSPC  | RSHFT |
+// |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
+//                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
                         bindings = <
    &kp ESC    &kp BP_DQUO   &none         &none            &none           &none                         &kp BP_AT    &kp K_SCROLL_UP  &kp UP     &kp K_SCROLL_DOWN  &kp PG_UP    &kp DEL
    &kp LSHFT  &none         &none         &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
-   &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &none 
-                                          &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC       &trans
+   &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &trans 
+                                          &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC     &trans
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
 
@@ -265,14 +265,14 @@
 
                 number_layer {
 // -----------------------------------------------------------------------------------------
-// |    |     |     |     |     |     |        |  €  |  7  |  8  |  9  |  /  | DEL |
-// |    |     |     |     |     |     |        |  #  |  4  |  5  |  6  |  *  |  =  |
-// |    |     |     |     |     |     |        |  %  |  1  |  2  |  3  |  -  |  .  |
+// | TAB |     |     |     |     |     |        |  €  |  7  |  8  |  9  |  /  | DEL |
+// |LSHFT|     |     |     |     |     |        |  #  |  4  |  5  |  6  |  *  |  =  |
+// |LCTRL|     |     |     |     |     |        |  %  |  1  |  2  |  3  |  -  |  .  |
 //                  |     |     | RET |        | RET |  +  |  0  |
                         bindings = <
-   &none &none &none &none &none &none                 &kp BP_EURO    &kp BP_7    &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
-   &none &none &none &none &none &none                 &kp BP_HASH    &kp BP_4    &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
-   &none &none &none &none &none &none   &none &none   &kp BP_PERC    &kp BP_1    &kp BP_2    &kp BP_3   &kp BP_MINS   &kp BP_DOT
+   &kp TAB   &none &none &none &none &none                 &kp BP_EURO    &kp BP_7    &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
+   &kp LSHFT &none &none &none &none &none                 &kp BP_HASH    &kp BP_4    &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
+   &kp LCTRL &none &none &none &none &none   &none &none   &kp BP_PERC    &kp BP_1    &kp BP_2    &kp BP_3   &kp BP_MINS   &kp BP_DOT
                      &trans &mo 3 &kp RET  &kp RET    &kp BP_PLUS    &kp BP_0
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -282,15 +282,15 @@
 
                 signs_layer {
 // -----------------------------------------------------------------------------------------
-// | & |  <  |  >  |  [  |  ]  |  @  |        |    |    |    |    |    |    |
-// | | |  /  |  \  |  (  |  )  |  $  |        |    |    |    |    |    |    |
-// | ^ |  «  |  »  |  {  |  }  |  ~  |        |    |    |    |    |    |    |
-//                 |  –  |  _  |  -  |        |    |    |
+// | TAB |  <  |  >  |  [  |  ]  |  @  |        |    |    |    |    |    |    |
+// |LSHFT|  /  |  \  |  (  |  )  |  $  |        |    |    |    |    |    |    |
+// |LCTRL|  «  |  »  |  {  |  }  |  ~  |        |    |    |    |    |    |    |
+//                 |  –  |  _  |  -  |        |  ^ |  | |  & |
                      bindings = <
- &kp BP_AMPR  &kp BP_LABK  &kp BP_RABK  &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT                 &none    &none    &none    &none    &none    &none
- &kp BP_PIPE  &kp BP_SLSH  &kp BP_BSLS  &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR                &none    &none    &none    &none    &none    &none
- &kp BP_CIRC  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD &none &none   &none    &none    &none    &none    &none    &none
-                                        &kp BP_NDSH  &kp BP_UNDS  &kp BP_MINS               &none    &none    &none
+ &kp TAB  &kp BP_LABK  &kp BP_RABK  &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT                 &none          &none          &none    &none    &none    &none
+ &kp LSHFT  &kp BP_SLSH  &kp BP_BSLS  &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR                &none          &none          &none    &none    &none    &none
+ &kp LCTRL  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD &none &none   &none          &none          &none    &none    &none    &none
+                                        &kp BP_NDSH  &kp BP_UNDS  &kp BP_MINS               &kp BP_CIRC    &kp BP_PIPE    &kp BP_AMPR
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
 

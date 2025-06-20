@@ -197,28 +197,31 @@
 
                 default_layer {
 // -------------------------------------------------------------------------------------------
-// |TAB  | b |  é |  p   |  o     |    è    |        |  ^       |  v    |   d     |  l  |  j  |   z      |
-// |LSHFT| a |  u |  i   |  e(4)  |    ,    |        |  c       |  t(5) |   s     |  r  |  n  |   m      |
-// |LCTRL| à |  y |  x   |  .     |    k    |        |  '       |  q    |   g     |  h  |  f  | w(RSHFT) |
-//                |GUI(6)| SPC(1) |RET(LALT)|       |RET(RCTRL)|BSPC(2)|ESC(RALT)|
+// | TAB   |  b  |  é  |  p  |  o     |  è  |       |  ^  |  v      |   d   |  l  |  j  |   z      |
+// | LSHFT |  a  |  u  |  i  |  4(e)  |  ,  |       |  c  |  5(t)   |   s   |  r  |  n  |   m      |
+// | LCTRL |  à  |  y  |  x  |  .     |  k  |       |  '  |  q      |   g   |  h  |  f  | RSHFT(w) |
+//                   | GUI | 1(SPC) | LALT(RET) | | RCTRL(RET) | 2(BSPC) | RALT(ESC) |
                         bindings = <
-   &kp TAB    &kp BP_B     &kp BP_EACU  &kp BP_P     &kp BP_O     &kp BP_EGRV                        &kp BP_DCIR     &kp BP_V        &kp BP_D       &kp BP_L   &kp BP_J    &kp BP_Z
-   &kp LSHFT  &kp BP_A     &kp BP_U     &kp BP_I     &lt 4 BP_E   &kp BP_COMM                        &kp BP_C        &lt 5 BP_T      &kp BP_S       &kp BP_R   &kp BP_N    &kp BP_M
-   &kp LCTRL  &kp BP_AGRV  &kp BP_Y     &kp BP_X     &kp BP_DOT   &kp BP_K      &none  &kp C_MUTE    &kp BP_QUOT     &kp BP_Q        &kp BP_G       &kp BP_H   &kp BP_F    &mt RSHFT BP_W
-                                        &lt 6 LGUI   &lt 1 SPACE  &mt LALT RET                       &mt RCTRL RET   &hl_r 2 BSPC    &mt RALT ESC
+   &kp TAB    &kp BP_B     &kp BP_EACU  &kp BP_P   &kp BP_O     &kp BP_EGRV                        &kp BP_DCIR     &kp BP_V        &kp BP_D       &kp BP_L   &kp BP_J    &kp BP_Z
+   &kp LSHFT  &kp BP_A     &kp BP_U     &kp BP_I   &lt 4 BP_E   &kp BP_COMM                        &kp BP_C        &lt 5 BP_T      &kp BP_S       &kp BP_R   &kp BP_N    &kp BP_M
+   &kp LCTRL  &kp BP_AGRV  &kp BP_Y     &kp BP_X   &kp BP_DOT   &kp BP_K      &none  &kp C_MUTE    &kp BP_QUOT     &kp BP_Q        &kp BP_G       &kp BP_H   &kp BP_F    &mt RSHFT BP_W
+                                        &kp LGUI   &lt 1 SPACE  &mt LALT RET                       &mt RCTRL RET   &hl_r 2 BSPC    &mt RALT ESC
+
                         >;
+
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
+
                 
                 lower_layer {
 // ----------------------------------------------------------------------------------
 // | ESC |  "  |     |      |        |     |       |  @  | SCR UP |  UP   | SCR DOWN | PG_UP  | DEL |
-// |LSHFT|     |  ù  | UNDO |  REDO  |     |       |  ç  | LEFT   | DOWN  | RIGHT    | PG_DN  |     |
+// |LSHFT|     |     | UNDO |  REDO  |     |       |  ç  | LEFT   | DOWN  | RIGHT    | PG_DN  |     |
 // |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
 //                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
                         bindings = <
    &kp ESC    &kp BP_DQUO   &none         &none            &none           &none                         &kp BP_AT    &kp K_SCROLL_UP  &kp UP     &kp K_SCROLL_DOWN  &kp PG_UP    &kp DEL
-   &kp LSHFT  &none         &BP_UGRV      &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
+   &kp LSHFT  &none         &none         &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
    &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &trans 
                                           &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC     &trans
                         >;
@@ -226,19 +229,23 @@
 
                 };
 
+
                 raise_layer {
+
 // -----------------------------------------------------------------------------------------
-// | TAB |  1  |  2  |  3  |  4  |  5  |         |      |SCR UP|   UP   | SCR DOWN | PG_UP | DEL |
-// |LSHFT|  6  |  7  |  8  |  9  |  0  |         | BSPC | LEFT |  DOWN  |  RIGHT   | PG_DN |     |
-// |LCTRL|     |     |     |     |     |         | DEL  | PREV |PLAY/PAU|   NEXT   |       |     |
-//                   |     | ADJ | RET |         |      |      |        |
+// | ESC |  1  |  2  |  3   |  4  |   5   |         |  6   |   7  |   8   |   9   |  0  | DEL |
+// |     |  F1 |  F2 |  F3  |  F4 |  F5   |         | vol up  | prev |  pause | next |     |     |
+// |     |  F6 |  F7 |  F8  |  F9 |  F10  |         | vol dn  | mute |        |      |     |     |
+//                   |      | ADJ |  RET  |         |         |      |        |
                         bindings = <
-   &trans   &kp BP_1  &kp BP_2  &kp BP_3  &kp BP_4  &kp BP_5                      &none      &kp K_SCROLL_UP  &kp UP           &kp K_SCROLL_DOWN   &kp PG_UP    &kp DEL
-   &trans   &kp BP_6  &kp BP_7  &kp BP_8  &kp BP_9  &kp BP_0                      &kp BSPC   &kp LEFT         &kp DOWN         &kp RIGHT           &kp PG_DN    &none 
-   &trans   &none     &none     &none     &none     &none     &none &bootloader   &kp DEL    &kp C_PREV       &kp C_PLAY_PAUSE &kp C_NEXT          &none        &none
-                                &trans    &mo 3     &kp RET                       &none       &none      &none
+   &kp ESC  &kp BP_1  &kp BP_2  &kp BP_3  &kp BP_4  &kp BP_5                      &kp BP_6      &kp BP_7    &kp BP_8         &kp BP_9    &kp BP_0  &kp DEL
+   &none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                        &kp C_VOL_UP  &kp C_PREV  &kp C_PLAY_PAUSE &kp C_NEXT  &none     &none
+   &none    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &none &bootloader   &kp C_VOL_DN  &kp C_MUTE  &none            &none       &none     &none
+                                &trans    &mo 3     &kp RET                       &kp RET       &trans      &trans
                         >;
                 };
+
+
 
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
@@ -261,7 +268,7 @@
 // | TAB |     |     |     |     |     |        |  €  |  7  |  8  |  9  |  /  | DEL |
 // |LSHFT|     |     |     |     |     |        |  #  |  4  |  5  |  6  |  *  |  =  |
 // |LCTRL|     |     |     |     |     |        |  %  |  1  |  2  |  3  |  -  |  .  |
-//                   |     |     | RET |        | RET |  +  |  0  |
+//                  |     |     | RET |        | RET |  +  |  0  |
                         bindings = <
    &kp TAB   &none &none &none &none &none                 &kp BP_EURO    &kp BP_7    &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
    &kp LSHFT &none &none &none &none &none                 &kp BP_HASH    &kp BP_4    &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
@@ -269,6 +276,8 @@
                      &trans &mo 3 &kp RET  &kp RET    &kp BP_PLUS    &kp BP_0
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+
+
                 };
 
                 signs_layer {
@@ -276,29 +285,16 @@
 // | TAB |  <  |  >  |  [  |  ]  |  @  |        |    |    |    |    |    |    |
 // |LSHFT|  /  |  \  |  (  |  )  |  $  |        |    |    |    |    |    |    |
 // |LCTRL|  «  |  »  |  {  |  }  |  ~  |        |    |    |    |    |    |    |
-//                   |  –  |  -  |  _  |        |  ^ |  | |  & |
+//                 |  –  |  _  |  -  |        |  ^ |  | |  & |
                      bindings = <
- &kp TAB    &kp BP_LABK  &kp BP_RABK  &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT                   &none          &none          &none    &none    &none    &none
- &kp LSHFT  &kp BP_SLSH  &kp BP_BSLS  &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR                  &none          &none          &none    &none    &none    &none
- &kp LCTRL  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD   &none &none   &none          &none          &none    &none    &none    &none
-                                      &kp BP_NDSH  &kp BP_MINS  &kp BP_UNDS                 &kp BP_CIRC    &kp BP_PIPE    &kp BP_AMPR
+ &kp TAB  &kp BP_LABK  &kp BP_RABK  &kp BP_LBRC  &kp BP_RBRC  &kp BP_AT                 &none          &none          &none    &none    &none    &none
+ &kp LSHFT  &kp BP_SLSH  &kp BP_BSLS  &kp BP_LPRN  &kp BP_RPRN  &kp BP_DLR                &none          &none          &none    &none    &none    &none
+ &kp LCTRL  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD &none &none   &none          &none          &none    &none    &none    &none
+                                        &kp BP_NDSH  &kp BP_UNDS  &kp BP_MINS               &kp BP_CIRC    &kp BP_PIPE    &kp BP_AMPR
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
-                };
 
-                function_keys {
-// -----------------------------------------------------------------------------------------
-// | TAB |    |    |     |    |     |        |    |    |    |    |    |    |
-// |LSHFT| F1 | F2 |  F3 | F4 | F5  |        |    |    |    |    |    |    |
-// |LCTRL| F6 | F7 |  F8 | F9 | F10 |        |    |    |    |    |    |    |
-//                 |     |    |     |        |    |    |    |
-                     bindings = <
- &trans &none   &none   &none   &none   &none                 &none  &none  &none &none &none &none
- &trans &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                &none  &none  &none &none &none &none
- &trans &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &none &none  &none  &none  &none &none &none &none 
-                        &none &trans &trans                   &trans &trans &trans
-                        >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+
                 };
         };
 };

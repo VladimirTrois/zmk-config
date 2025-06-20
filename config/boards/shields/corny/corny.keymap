@@ -151,7 +151,7 @@
 //#define BP_SCHW ALGR(BP_Z)    // Ə
 //// Row 3
 //#define BP_AE   ALGR(BP_A)    // Æ
-#define BP_UGRV ALGR(BP_U)    // Ù
+#define BP_UGRV RA(BP_U)    // Ù
 #define BP_EURO RA(BP_E)    // €
 //#define BP_COPY ALGR(BP_C)    // ©
 //#define BP_THRN ALGR(BP_T)    // Þ

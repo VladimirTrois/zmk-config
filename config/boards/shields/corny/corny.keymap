@@ -207,7 +207,7 @@
    &kp LCTRL  &kp BP_AGRV  &kp BP_Y     &kp BP_X      &kp BP_DOT   &kp BP_K      &none  &kp C_MUTE    &kp BP_QUOT     &kp BP_Q        &kp BP_G       &kp BP_H   &kp BP_F    &mt RSHFT BP_W
                                         &hl_r 6 LGUI  &lt 1 SPACE  &mt LALT RET                       &mt RCTRL RET   &hl_r 2 BSPC    &mt RALT ESC
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
                 
                 lower_layer {
@@ -217,12 +217,12 @@
 // |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
 //                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
                         bindings = <
-   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &kp K_SCROLL_UP  &kp UP     &kp K_SCROLL_DOWN  &kp PG_UP    &kp DEL
+   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &kp SCROLL_UP  &kp UP     &kp SCROLL_DOWN  &kp PG_UP    &kp DEL
    &kp LSHFT  &none         &kp BP_UGRV   &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
    &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &trans 
                                           &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC     &trans
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
 
                 };
 
@@ -233,7 +233,7 @@
 // |LCTRL|     |     |     |     |     |         | DEL  | PREV |PLAY/PAU|   NEXT   |       |     |
 //                   |     | ADJ | RET |         |      |      |        |
                         bindings = <
-   &trans   &kp BP_1  &kp BP_2  &kp BP_3  &kp BP_4  &kp BP_5                      &none      &kp K_SCROLL_UP  &kp UP           &kp K_SCROLL_DOWN   &kp PG_UP    &kp DEL
+   &trans   &kp BP_1  &kp BP_2  &kp BP_3  &kp BP_4  &kp BP_5                      &none      &kp SCROLL_UP  &kp UP           &kp SCROLL_DOWN   &kp PG_UP    &kp DEL
    &trans   &kp BP_6  &kp BP_7  &kp BP_8  &kp BP_9  &kp BP_0                      &kp BSPC   &kp LEFT         &kp DOWN         &kp RIGHT           &kp PG_DN    &none 
    &trans   &none     &none     &none     &none     &none     &none &bootloader   &kp DEL    &kp C_PREV       &kp C_PLAY_PAUSE &kp C_NEXT          &none        &none
                                 &trans    &mo 3     &kp RET                       &none       &none      &none
@@ -252,7 +252,7 @@
    &none        &none  &none  &none  &none      &none   &none &none   &none        &none        &none        &none        &none        &none
                               &trans &trans     &tog 3                &kp RET      &trans       &trans
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
 
                 };
 
@@ -268,7 +268,7 @@
    &kp LCTRL &none &kp BP_DOT    &kp BP_EQL    &none  &none    &none &none   &kp BP_PERC    &kp BP_1      &kp BP_2    &kp BP_3   &kp BP_PLUS   &kp BP_MINS
                                  &trans        &trans &kp RET                &kp RET        &trans   &kp BP_0
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
                 signs_layer {
@@ -283,7 +283,7 @@
  &kp LCTRL  &kp BP_LDAQ  &kp BP_RDAQ  &kp BP_LCBR  &kp BP_RCBR  &kp BP_TILD   &none &none   &none          &none          &none    &none    &none    &none
                                       &kp BP_NDSH  &kp BP_MINS  &kp BP_UNDS                 &kp BP_CIRC    &kp BP_PIPE    &kp BP_AMPR
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
 
                 functionkeys_layer {
@@ -298,7 +298,7 @@
  &trans &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &none &none  &none  &none  &none &none &none &none 
                         &none &trans &trans                   &trans &trans &trans
                         >;
-                        sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
+                        sensor-bindings = <&inc_dec_kp SCROLL_UP SCROLL_DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };
         };
 };

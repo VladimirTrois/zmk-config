@@ -197,10 +197,10 @@
 
                 default_layer {
 // -------------------------------------------------------------------------------------------
-// |TAB  | b |  é |  p   |  o     |    è    |        |  ^       |  v    |   d     |  l  |  j  |   z      |
-// |LSHFT| a |  u |  i   |  e(4)  |    ,    |        |  c       |  t(5) |   s     |  r  |  n  |   m      |
-// |LCTRL| à |  y |  x   |  .     |    k    |        |  '       |  q    |   g     |  h  |  f  | w(RSHFT) |
-//                |GUI(6)| SPC(1) |RET(LALT)|       |RET(RCTRL)|BSPC(2)|ESC(RALT)|
+// | TAB   |  b  |  é  |   p    |  o     |     è     |        |   ^        |   v     |    d      |  l  |  j  |   z      |
+// | LSHFT |  a  |  u  |   i    |  e(4)  |     ,     |        |   c        |   t(5)  |    s      |  r  |  n  |   m      |
+// | LCTRL |  à  |  y  |   x    |  .     |     k     |        |   '        |   q     |    g      |  h  |  f  | w(RSHFT) |
+//                     | GUI(6) | SPC(1) | RET(LALT) |        | RET(RCTRL) | BSPC(2) | ESC(RALT) |
                         bindings = <
    &kp TAB    &kp BP_B     &kp BP_EACU  &kp BP_P     &kp BP_O     &kp BP_EGRV                        &kp BP_DCIR     &kp BP_V        &kp BP_D       &kp BP_L   &kp BP_J    &kp BP_Z
    &kp LSHFT  &kp BP_A     &kp BP_U     &kp BP_I     &lt 4 BP_E   &kp BP_COMM                        &kp BP_C        &lt 5 BP_T      &kp BP_S       &kp BP_R   &kp BP_N    &kp BP_M
@@ -212,7 +212,7 @@
                 
                 lower_layer {
 // ----------------------------------------------------------------------------------
-// | ESC |  "  |     |      |        |     |       |  @  | SCR UP |  UP   | SCR DOWN | PG_UP  | DEL |
+// | ESC |  "  |     | BSPC |   DEL  |     |       |  @  | SCR UP |  UP   | SCR DOWN | PG_UP  | DEL |
 // |LSHFT|     |  ù  | UNDO |  REDO  |     |       |  ç  | LEFT   | DOWN  | RIGHT    | PG_DN  |     |
 // |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
 //                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
@@ -258,15 +258,15 @@
 
                 number_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB |     |     |     |     |     |        |  €  |  7  |  8  |  9  |  /  | DEL |
-// |LSHFT|     |     |     |     |     |        |  #  |  4  |  5  |  6  |  *  |  =  |
-// |LCTRL|     |     |     |     |     |        |  %  |  1  |  2  |  3  |  -  |  .  |
-//                   |     |     | RET |        | RET |  +  |  0  |
+// | TAB |     |  /  |  *  |       |     |        |  €  |  7   |  8  |  9  |  /  | DEL |
+// |LSHFT|     |  -  |  +  |       |     |        |  #  |  4   |  5  |  6  |  *  |  =  |
+// |LCTRL|     |  .  |  =  |       |     |        |  %  |  1   |  2  |  3  |  +  |  -  |
+//                   | GUI | SPACE | RET |        | RET | BSPC |  0  |
                         bindings = <
-   &kp TAB   &none &none &none &none &none                 &kp BP_EURO    &kp BP_7    &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
-   &kp LSHFT &none &none &none &none &none                 &kp BP_HASH    &kp BP_4    &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
-   &kp LCTRL &none &none &none &none &none   &none &none   &kp BP_PERC    &kp BP_1    &kp BP_2    &kp BP_3   &kp BP_MINS   &kp BP_DOT
-                     &trans &mo 3 &kp RET  &kp RET    &kp BP_PLUS    &kp BP_0
+   &kp TAB   &none &kp BP_SLSH   &kp BP_ASTR   &none  &none                  &kp BP_EURO    &kp BP_7      &kp BP_8    &kp BP_9   &kp BP_SLSH   &kp DEL
+   &kp LSHFT &none &kp BP_MINS   &kp BP_PLUS   &none  &none                  &kp BP_HASH    &kp BP_4      &kp BP_5    &kp BP_6   &kp BP_ASTR   &kp BP_EQL
+   &kp LCTRL &none &kp BP_DOT    &kp BP_EQL    &none  &none    &none &none   &kp BP_PERC    &kp BP_1      &kp BP_2    &kp BP_3   &kp BP_PLUS   &kp BP_MINS
+                                 &trans        &trans &kp RET                &kp RET        &trans   &kp BP_0
                         >;
                         sensor-bindings = <&inc_dec_kp UP DOWN  &inc_dec_kp C_VOL_UP C_VOL_DN>;
                 };

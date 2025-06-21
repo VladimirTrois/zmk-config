@@ -189,6 +189,11 @@
                         flavor = "tap-preferred";
                         bindings = <&mo>, <&kp>;
                 };
+                c: consumer_behavior {
+                        compatible = "zmk,behavior-consumer";
+                        label = "C";
+                        #binding-cells = <1>;
+                };
         };
 
 

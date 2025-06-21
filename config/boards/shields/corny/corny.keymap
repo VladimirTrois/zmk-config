@@ -189,10 +189,17 @@
                         flavor = "tap-preferred";
                         bindings = <&mo>, <&kp>;
                 };
-                c: consumer_behavior {
+                scroll_up: behavior_consumer {
                         compatible = "zmk,behavior-consumer";
-                        label = "C";
+                        label = "SCROLL_UP";
                         #binding-cells = <1>;
+                        usage = <0x00 0x38>; // HID usage for Scroll Up
+                };
+                scroll_down: behavior_consumer {
+                        compatible = "zmk,behavior-consumer";
+                        label = "SCROLL_DOWN";
+                        #binding-cells = <1>;
+                        usage = <0x00 0x39>; // HID usage for Scroll Down
                 };
         };
 
@@ -222,7 +229,7 @@
 // |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
 //                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
                         bindings = <
-   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &kp K_SCROLL_UP  &kp UP     &c C_SCROLL_DOWN     &kp PG_UP    &kp DEL
+   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &kp K_SCROLL_UP  &kp UP     &kp K_SCROLL_DOWN     &kp PG_UP    &kp DEL
    &kp LSHFT  &php_accessor &kp BP_UGRV   &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
    &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &trans 
                                           &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC     &trans

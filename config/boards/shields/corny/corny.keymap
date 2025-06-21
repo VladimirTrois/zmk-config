@@ -217,7 +217,7 @@
 // |LCTRL|     | CUT | COPY | PASTE  |     |       |     |        |       |          |        |RSHFT|
 //                   | GUI  |        | RET |       | RET |  BSPC  | RALT(ESC) |
                         bindings = <
-   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &mmv  SCROLL_UP  &kp UP     &mmv SCROLL_DOWN   &kp PG_UP    &kp DEL
+   &kp ESC    &kp BP_DQUO   &none         &kp BSPC         &kp DEL         &none                         &kp BP_AT    &kp SCROLL_UP    &kp UP           &kp SCROLL_DOWN      &kp PG_UP    &kp DEL
    &kp LSHFT  &none         &kp BP_UGRV   &kp LC(BP_Z)     &kp LC(BP_Y)    &none                         &kp BP_CCED  &kp LEFT         &kp DOWN   &kp RIGHT          &kp PG_DN    &none 
    &kp LCTRL  &none         &kp LC(BP_X)  &kp LC(BP_C)     &kp LC(BP_V)    &none  &bootloader  &none     &none        &none            &none      &none              &none        &trans 
                                           &trans           &mo 1           &kp RET                       &kp RET      &hl_r 3 BSPC     &trans
